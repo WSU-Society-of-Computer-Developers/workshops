@@ -1,0 +1,1 @@
+nodemon --exec "python %cd%/%1" '%cd%/%1' 
