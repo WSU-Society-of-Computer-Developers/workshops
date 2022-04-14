@@ -7,7 +7,7 @@
     <script>
         function onPress() {
             setText("Loading...")
-            fetch("http://localhost:3000")
+            fetch("http://localhost:5000")
                 .then((response) => response.text())
                 .then(setText).catch(setText)
         }
