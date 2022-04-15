@@ -248,7 +248,7 @@ app.listen(port, () => {
 
 ```
 
-## Project 4 - Full-stack Messaging Project
+## Project 4 - Full-stack Messaging Platform Project
 
 This project aims to demonstrate how a REST API is intertwined with the frontend.
 
@@ -257,6 +257,7 @@ This project aims to demonstrate how a REST API is intertwined with the frontend
   2. node package manager (NPM)
     - express
     - body-parser
+    - node-json-db
 
 1. First, initialize a node project in an empty folder:
 ```sh

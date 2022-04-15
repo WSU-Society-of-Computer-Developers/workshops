@@ -13,10 +13,11 @@ module.exports = (req, res) => {
         timestamp: new Date().toLocaleString(),
         ip: req.ip,
         id: hash,
+        edited: false,
         author,
         content,
     }
-    
+    console.log(`${author} has created a post.`)
     db.push("/messages[]",msg,true)
     res.status(200).json(msg)
 }

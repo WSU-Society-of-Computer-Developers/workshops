@@ -1,10 +1,11 @@
-const all = require("./message/all");
 const create = require("./message/create");
-const view = require("./message/view");
+const edit = require("./message/edit");
+const view = require("./message/");
 const router = require("express").Router();
 
-router.get("/all", all) // /message/all
 router.post("/create", create) // /message/create
+router.put("/:id", edit) // /message/:id
+router.delete("/:id", edit) // /message/:id
 router.get("/:id", view) // /message/:id
 
 
