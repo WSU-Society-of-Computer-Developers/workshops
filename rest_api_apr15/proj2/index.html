@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <title>Universities across the world</title>
+</head>
+<div id="container">
+    Loading Data...
+</div>
+<script>
+    (async () => {
+        const targetUrl = "https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json"
+        try {
+            const response = await fetch(targetUrl, { method: "GET" })
+            const jsonData = await response.json() // this data will be an array of objects
+            var final = "" // what will be displayed to the container
+            for (let i = 0; i < jsonData.length; i++) {
+                let thisSchool = jsonData[i]
+                const row = `
+                <img width="40" height="22" src="https://www.geonames.org/flags/x/${thisSchool.alpha_two_code.toLowerCase()}.gif"/>
+                <a href="${thisSchool.web_pages[0]}">
+                    ${thisSchool.name}
+                </a>
+                </br>`
+                final += row
+            }
+            setContent(final)
+        } catch (err) {
+            setContent(err.toString())
+        }
+    })()
+
+    function setContent(txt) {
+        document.querySelector("#container").innerHTML = txt
+    }
+</script>
+
+</html>
