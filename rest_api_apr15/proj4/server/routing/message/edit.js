@@ -4,7 +4,7 @@ module.exports = (req, res) => {
     var data = db.getData("/messages")
     const message = data.find(msg => msg.id === req.params.id) // same logic as index.js
     if (!message) {
-        res.status(404).json({ error: "message was not found" })
+        res.status(404).json({ error: "message was not found with that id" })
         return
     }
     if ((req.ip === message.ip) && (req.query.author === message.author)) {
@@ -30,7 +30,9 @@ module.exports = (req, res) => {
             case "DELETE":
                 const objIndex = data.findIndex(msg => msg.id === req.params.id) // a bit redundant
                 const deleted = data.splice(objIndex, 1)
+                db.push("/messages", data)
                 res.status(200).json(deleted)
+                console.log(`${message.author} has deleted their post.`)
                 break;
         }
 
