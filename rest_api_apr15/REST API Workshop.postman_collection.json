@@ -1,0 +1,492 @@
+{
+	"info": {
+		"_postman_id": "8692e966-c3e4-4747-958e-70685e9e91f5",
+		"name": "REST API Workshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Project 3 - Joke API",
+			"item": [
+				{
+					"name": "Get Server Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Random Joke",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/getJoke",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"getJoke"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Specific Joke",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/getJoke?num=3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"getJoke"
+							],
+							"query": [
+								{
+									"key": "num",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Jokes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/getAllJokes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"getAllJokes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove All Jokes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/clearJokes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clearJokes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a Joke",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/addJoke?joke=What's nine plus ten? nineteen!",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"addJoke"
+							],
+							"query": [
+								{
+									"key": "joke",
+									"value": "What's nine plus ten? nineteen!"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project 4 - MSG API",
+			"item": [
+				{
+					"name": "Authors",
+					"item": [
+						{
+							"name": "Get All Authors",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/author",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"author"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Entries by Author",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/author/Zavaar",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"author",
+										"Zavaar"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Messages",
+					"item": [
+						{
+							"name": "Create Message",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "content",
+											"value": "Welcome to this site",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/message/create?author=Zua",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"message",
+										"create"
+									],
+									"query": [
+										{
+											"key": "author",
+											"value": "Zua"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Messages",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "content",
+											"value": "Hello, this is my entry to the messages API.",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/message",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"message"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Specific Message",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "content",
+											"value": "Hello, this is my entry to the messages API.",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/message/3cdbcfd5c6809972770b9b52a0dcd702bf117560f68e5b3450ceddbb9aa72fce",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"message",
+										"3cdbcfd5c6809972770b9b52a0dcd702bf117560f68e5b3450ceddbb9aa72fce"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Message",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "content",
+											"value": "My updated message!",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/message/3cdbcfd5c6809972770b9b52a0dcd702bf117560f68e5b3450ceddbb9aa72fce?author=Zavaar",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"message",
+										"3cdbcfd5c6809972770b9b52a0dcd702bf117560f68e5b3450ceddbb9aa72fce"
+									],
+									"query": [
+										{
+											"key": "author",
+											"value": "Zavaar"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Message",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/message/3cf3049c824d5e2afe1bab0204bd904235fc3af241908d987d5e852201e0eda6?author=Zavaar",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"message",
+										"3cf3049c824d5e2afe1bab0204bd904235fc3af241908d987d5e852201e0eda6"
+									],
+									"query": [
+										{
+											"key": "author",
+											"value": "Zavaar"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User-Interface",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fun Fact Free API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://asli-fun-fact-api.herokuapp.com/",
+					"protocol": "https",
+					"host": [
+						"asli-fun-fact-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Universities Global List Static API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json",
+					"protocol": "https",
+					"host": [
+						"raw",
+						"githubusercontent",
+						"com"
+					],
+					"path": [
+						"Hipo",
+						"university-domains-list",
+						"master",
+						"world_universities_and_domains.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ulvis.net URL Shortener API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ulvis.net/api.php?url=&custom=",
+					"protocol": "https",
+					"host": [
+						"ulvis",
+						"net"
+					],
+					"path": [
+						"api.php"
+					],
+					"query": [
+						{
+							"key": "url",
+							"value": ""
+						},
+						{
+							"key": "custom",
+							"value": ""
+						},
+						{
+							"key": "private",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Shorten \"zavaar.net\"",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ulvis.net/api.php?url=https://zavaar.net/",
+							"protocol": "https",
+							"host": [
+								"ulvis",
+								"net"
+							],
+							"path": [
+								"api.php"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://zavaar.net/"
+								},
+								{
+									"key": "custom",
+									"value": "zavaar",
+									"disabled": true
+								},
+								{
+									"key": "private",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:5000",
+			"type": "string"
+		}
+	]
+}
