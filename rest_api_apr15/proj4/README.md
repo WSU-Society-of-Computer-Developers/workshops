@@ -1,6 +1,6 @@
 ## Project 4 - Full-stack Messaging Project
 
-This project demonstrates how a REST API becomes intertwined with the frontend.
+This project demonstrates how a REST API (backend) works with the frontend.
 
 * Requirements
   1. nodejs
@@ -16,7 +16,7 @@ npm init -y
 
 2. Then, do:
 ```sh
-npm install express body-parser
+npm install express body-parser node-json-db
 ```
 
 3. make sure `database.json` starts off with:
