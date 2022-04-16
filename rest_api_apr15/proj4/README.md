@@ -1,6 +1,6 @@
 ## Project 4 - Full-stack Messaging Project
 
-This project demonstrates how a REST API becomes intertwined with the frontend.
+This project demonstrates how a REST API (backend) works with the frontend.
 
 * Requirements
   1. nodejs
