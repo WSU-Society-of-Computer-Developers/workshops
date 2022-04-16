@@ -266,7 +266,7 @@ npm init -y
 
 2. Then, do:
 ```sh
-npm install express body-parser
+npm install express body-parser node-json-db
 ```
 
 3. Refer to `./proj4` for source code
