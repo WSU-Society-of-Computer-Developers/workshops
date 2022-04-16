@@ -15,6 +15,7 @@ module.exports = (req, res) => {
                     for (let i = 0; i < data.length; i++) {
                         if (data[i].id === req.params.id) {
                             data[i].content = req.body.content // update content
+                            data[i].timestamp = new Date().toLocaleString()
                             data[i].edited = true
                             console.log(`${message.author} has edited their post.`)
                             res.status(200).json(data[i])

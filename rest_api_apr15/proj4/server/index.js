@@ -6,9 +6,7 @@ const middleware = require('./routing/middleware')
 const app = express()
 const port = 5000
 
-app.get("/", (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, "../client/index.html"))
-})
+app.use(express.static(path.join(__dirname, "../client"))) // serve static files under the client folder
 
 app.use(bodyParser.urlencoded({  // to support URL-encoded bodies
     extended: true
