@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+<p id="test">This is real time online HTML Editor</p>
+<img id="image"/>
+<ol id="groceries"></ol>
+</body>
+<script>
+    document.body.style.backgroundColor = "gray"
+    // set background to gray
+    const element = document.getElementById("test")
+    element.style = "color: black;"
+    // set element's text color to black
+
+    element.textContent = "Hello from the DOM"
+    // set the element's text value
+
+    element.innerHTML = "<b>I am bold.</b>"
+    // set the element's inner HTML value (this will overwrite the previous text content changes)
+
+    const image = document.getElementById("image")
+    image.setAttribute("src", "https://images.unsplash.com/photo-1677690740070-ec6f41e346a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80")
+    // set the image's url source attribute to another image
+
+
+    // create & append elements 
+    const groceriesListElement = document.querySelector("#groceries")
+    const groceries = ["🍊 Oranges", "🍎 Apples", "🍇 Grapes"]
+    for (let item of groceries) {
+        const listItem = document.createElement("li")
+        // create list items to append in the parent element
+        listItem.textContent = item
+        // set the content of the list item to the item in the array
+        listItem.style.fontSize = "larger"
+        // make the font size of the list item larger
+        groceriesListElement.appendChild(listItem)
+        // finally append the items into the parent element
+    }
+</script>
+</html>
