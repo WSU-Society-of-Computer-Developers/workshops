@@ -37,7 +37,7 @@ To access any element in an HTML file in JavaScript, we can use:
 ## Manipulating the DOM
 
 ```html
-<p id="test">This is real time online HTML Editor</p>
+<p id="test">This is the default content</p>
 <img id="image"/>
 <ol id="groceries"></ol>
 <script>
@@ -74,3 +74,43 @@ To access any element in an HTML file in JavaScript, we can use:
 </script>
 
 ```
+
+## Form Validation (Accessing DOM)
+
+```html
+<h1>Form validation</h1>
+<form name="myForm">
+    <input placeholder="First name" name="fname">
+    <input placeholder="Last name" name="lname">
+    <input placeholder="Age" name="age" type="number">
+    <input type="submit" value="Go!">
+</form>
+
+<script>
+    const myForm = document.forms.myForm
+    // access the entire form
+    function validateForm(e) {
+        e.preventDefault() // this cancels the submit event - i.e it doesn't refresh the page on submission
+        const lname = myForm.lname.value 
+        const fname = myForm.fname.value
+        const age = myForm.age.value
+        // get all our input values from the form
+        try {
+            if (!fname) throw "Please enter your first name!"
+            if (!lname) throw "Please enter your last name!"
+            if (!age) throw "Please enter your age!"
+            if (age < 18) throw "You are not old enough"
+            // ^ form validation logic
+            alert("Welcome to the site")
+            // if no errors, then proceed.
+        } catch (err) {
+            alert(err)
+            // show any errors (if thrown) to the client
+        }
+    }
+    myForm.addEventListener("submit", validateForm)
+    // listen to the submit event and bind it to the validateForm function
+</script>
+```
+
+

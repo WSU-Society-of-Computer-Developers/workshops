@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form validation</title>
+</head>
+<body>
+    <h1>Form validation</h1>
+    <form name="myForm">
+        <input placeholder="First name" name="fname">
+        <input placeholder="Last name" name="lname">
+        <input placeholder="Age" name="age" type="number">
+        <input type="submit" value="Go!">
+    </form>
+</body>
+<script>
+    const myForm = document.forms.myForm
+    function validateForm(e) {
+        e.preventDefault()
+        const lname = myForm.lname.value
+        const fname = myForm.fname.value
+        const age = myForm.age.value
+        try {
+            if (!fname) throw "Please enter your first name!"
+            if (!lname) throw "Please enter your last name!"
+            if (!age) throw "Please enter your age!"
+            if (age < 18) throw "You are not old enough"
+            alert("Welcome to the site")
+        } catch (err) {
+            alert(err)
+        }
+    }
+    myForm.addEventListener("submit", validateForm)
+</script>
+
+</html>
