@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+
+    #container {
+      padding: 3em;
+    }
+
+    li:hover {
+      text-decoration: line-through;
+      cursor: pointer;
+    }
+  </style>
+  <script type="text/javascript" src="auth.js"></script>
+  <title>Firebase App</title>
+  <!-- *******************************************************************************************
+       * TODO(DEVELOPER): Paste the initialization snippet from:
+       * Firebase Console > Overview > Add Firebase to your web app. *
+       ***************************************************************************************** -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js'
+
+    // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+    import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js'
+
+    // Add Firebase products that you want to use
+    import { getAuth } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js'
+    import {
+      getFirestore,
+      collection,
+      doc,
+      addDoc,
+      deleteDoc,
+      query, where,
+      getDoc, getDocs
+    } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js'
+    const app = initializeApp(firebaseConfig); // "firebaseConfig" is in auth.js
+    const db = getFirestore(app)
+    /*const docRef = addDoc(collection(db, "todos"), {
+      name: "Tokyo",
+      country: "Japan"
+    });*/
+    const createTodo = async () => {
+      try {
+        const inputValue = document.querySelector("#createInput").value
+        if (!inputValue) {
+          throw "Please enter a value"
+        }
+        const docRef = await addDoc(collection(db, "todos"), {
+          content: inputValue
+        });
+        await getAllTodos()
+      } catch (err) {
+        alert(err)
+      }
+    }
+    const deleteTodo = async (id) => {
+      try {
+        await deleteDoc(doc(db, "todos", id))
+        await getAllTodos()
+      } catch (err) {
+        alert(err)
+      }
+    }
+    const getAllTodos = async () => {
+      try {
+        const q = query(collection(db, "todos"))
+        const querySnapshot = await getDocs(q);
+        const listElement = document.querySelector("#list")
+        listElement.innerHTML = "" // reset the list before rebuilding it
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          const id = doc.id
+          const { content } = doc.data()
+          const todoElement = document.createElement("li")
+          todoElement.innerHTML = content
+          todoElement.addEventListener("click", () => deleteTodo(id))
+          listElement.appendChild(todoElement)
+        });
+      } catch (err) {
+        alert(err)
+      }
+    }
+    //
+    getAllTodos()
+
+    document.querySelector("#createBtn").addEventListener("click", createTodo)
+  </script>
+</head>
+
+<body>
+
+  <div id="container">
+    <h1>Your TODOs</h1>
+    <ul id="list"></ul>
+    <hr />
+    <input type="text" placeholder="Enter TODO here" id="createInput" />
+    <button type="button" id="createBtn">Create</button>
+  </div>
+</body>
+
+</html>
