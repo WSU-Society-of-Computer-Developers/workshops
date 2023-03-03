@@ -4,7 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
 
+    #container {
+      padding: 3em;
+    }
+
+    li:hover {
+      text-decoration: line-through;
+      cursor: pointer;
+    }
+  </style>
   <script type="text/javascript" src="auth.js"></script>
   <title>Firebase App</title>
   <!-- *******************************************************************************************
@@ -19,14 +29,22 @@
 
     // Add Firebase products that you want to use
     import { getAuth } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js'
-    import { getFirestore, collection, addDoc, query, where, getDoc, getDocs } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js'
+    import {
+      getFirestore,
+      collection,
+      doc,
+      addDoc,
+      deleteDoc,
+      query, where,
+      getDoc, getDocs
+    } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js'
     const app = initializeApp(firebaseConfig); // "firebaseConfig" is in auth.js
     const db = getFirestore(app)
     /*const docRef = addDoc(collection(db, "todos"), {
       name: "Tokyo",
       country: "Japan"
     });*/
-    async function createNew() {
+    const createTodo = async () => {
       try {
         const inputValue = document.querySelector("#createInput").value
         if (!inputValue) {
@@ -35,12 +53,20 @@
         const docRef = await addDoc(collection(db, "todos"), {
           content: inputValue
         });
-        await getAll()
+        await getAllTodos()
       } catch (err) {
         alert(err)
       }
     }
-    const getAll = async () => {
+    const deleteTodo = async (id) => {
+      try {
+        await deleteDoc(doc(db, "todos", id))
+        await getAllTodos()
+      } catch (err) {
+        alert(err)
+      }
+    }
+    const getAllTodos = async () => {
       try {
         const q = query(collection(db, "todos"))
         const querySnapshot = await getDocs(q);
@@ -50,9 +76,9 @@
           // doc.data() is never undefined for query doc snapshots
           const id = doc.id
           const { content } = doc.data()
-          
           const todoElement = document.createElement("li")
           todoElement.innerHTML = content
+          todoElement.addEventListener("click", () => deleteTodo(id))
           listElement.appendChild(todoElement)
         });
       } catch (err) {
@@ -60,9 +86,9 @@
       }
     }
     //
-    getAll()
+    getAllTodos()
 
-    document.querySelector("#createBtn").addEventListener("click", createNew)
+    document.querySelector("#createBtn").addEventListener("click", createTodo)
   </script>
 </head>
 

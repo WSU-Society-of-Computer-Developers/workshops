@@ -14,3 +14,5 @@ Target functionalities:
 * Firestore update, query, delete, add
 
 ## Project 2 'chat-app'
+
+![chatapp_preview](TODOs/preview.png)
