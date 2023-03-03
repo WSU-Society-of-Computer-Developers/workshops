@@ -1,32 +1,80 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script type="text/javascript" src="auth.js"></script>
-    <title>Firebase App</title>
-    <!-- *******************************************************************************************
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script type="text/javascript" src="auth.js"></script>
+  <title>Firebase App</title>
+  <!-- *******************************************************************************************
        * TODO(DEVELOPER): Paste the initialization snippet from:
        * Firebase Console > Overview > Add Firebase to your web app. *
        ***************************************************************************************** -->
-       <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js'
-        
-        const app = initializeApp(firebaseConfig); // "firebaseConfig" is in auth.js
-        // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
-        import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js'
-    
-        // Add Firebase products that you want to use
-        import { getAuth } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js'
-        import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js'
-      </script>
-  </head>
-  <body>
-    <div id="firebaseui-auth-container"></div>
-    <h1>Manage TODOs</h1>
-    <div id="sign-in-status"></div>
-    <div id="sign-in"></div>
-    <pre id="account-details"></pre>
-  </body>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js'
+
+    // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+    import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js'
+
+    // Add Firebase products that you want to use
+    import { getAuth } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js'
+    import { getFirestore, collection, addDoc, query, where, getDoc, getDocs } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js'
+    const app = initializeApp(firebaseConfig); // "firebaseConfig" is in auth.js
+    const db = getFirestore(app)
+    /*const docRef = addDoc(collection(db, "todos"), {
+      name: "Tokyo",
+      country: "Japan"
+    });*/
+    async function createNew() {
+      try {
+        const inputValue = document.querySelector("#createInput").value
+        if (!inputValue) {
+          throw "Please enter a value"
+        }
+        const docRef = await addDoc(collection(db, "todos"), {
+          content: inputValue
+        });
+        await getAll()
+      } catch (err) {
+        alert(err)
+      }
+    }
+    const getAll = async () => {
+      try {
+        const q = query(collection(db, "todos"))
+        const querySnapshot = await getDocs(q);
+        const listElement = document.querySelector("#list")
+        listElement.innerHTML = "" // reset the list before rebuilding it
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          const id = doc.id
+          const { content } = doc.data()
+          
+          const todoElement = document.createElement("li")
+          todoElement.innerHTML = content
+          listElement.appendChild(todoElement)
+        });
+      } catch (err) {
+        alert(err)
+      }
+    }
+    //
+    getAll()
+
+    document.querySelector("#createBtn").addEventListener("click", createNew)
+  </script>
+</head>
+
+<body>
+
+  <div id="container">
+    <h1>Your TODOs</h1>
+    <ul id="list"></ul>
+    <hr />
+    <input type="text" placeholder="Enter TODO here" id="createInput" />
+    <button type="button" id="createBtn">Create</button>
+  </div>
+</body>
+
 </html>
