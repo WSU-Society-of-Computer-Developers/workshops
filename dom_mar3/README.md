@@ -113,4 +113,42 @@ To access any element in an HTML file in JavaScript, we can use:
 </script>
 ```
 
+## The final project `TODO App`
 
+```html
+<h1>Manage TODOs</h1>
+<ul id="todos"></ul>
+<input type="text" id="todoInput">
+<button onclick="createTodo()">Create</button>
+<!-- You can either do an onclick attribute, or add an event listener to this button-->
+<script>
+    document.body.style.backgroundColor = "black"
+    document.body.style.color = "white"
+    // set background black, and text color to white
+
+
+    const todosList = document.querySelector("#todos")
+
+    const createTodo = () => {
+        const inputValue = document.querySelector("#todoInput").value
+        if (!inputValue) return alert("Please enter something TODO")
+        const todoItem = document.createElement("li")
+            // create list items to append in the parent element
+            todoItem.textContent = inputValue
+            // set the content of the list item to the item in the array
+
+            todoItem.style.cursor = "pointer" // make the cursor turn into pointer mode when being hovered
+            todoItem.onmouseover = function () {this.style.textDecoration = "line-through"}
+            // when the mouse is over the element, make the text strike through
+            todoItem.onmouseout = function () {this.style.textDecoration = "none"}
+            // when the mouse is NOT over the element, make the text normal
+            
+            todoItem.addEventListener("click", ()=>{
+                todoItem.remove()
+            })
+            // if the todo gets clicked, remove it from the set and the DOM
+            todosList.appendChild(todoItem)
+            // finally append the items into the parent element
+    }
+</script>
+```
