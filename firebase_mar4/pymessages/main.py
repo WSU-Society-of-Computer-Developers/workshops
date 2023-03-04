@@ -2,7 +2,7 @@ import os
 import firebase_admin
 from firebase_admin import credentials
 from google.cloud import firestore
-
+# pip install firebase-admin
 
 authFile = os.getcwd()+"\\auth.json"
 
