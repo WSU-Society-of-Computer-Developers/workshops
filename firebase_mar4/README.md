@@ -17,12 +17,12 @@ Target functionalities:
 
 ## Project 2 'TODOs' web app
 
-![chatapp_preview](TODOs/preview.png)
+![todoapp](TODOs/preview.png)
 
 CRUD app that manages TODOs in a traditional HTML/JS environment.
 
 
-## Change your Firestore rules for unauthenticated access FOR ANYONE
+### Change your Firestore rules for unauthenticated access FOR ANYONE
 
 ```
 rules_version = '2';
@@ -34,3 +34,11 @@ service cloud.firestore {
   }
 }
 ```
+
+## Project 3 `chat-app` realtime, authenticated chat application
+
+Main interface
+![chatapp_1](chat-app/preview1.png)
+
+Login
+![chatapp_2](chat-app/preview2.png)
