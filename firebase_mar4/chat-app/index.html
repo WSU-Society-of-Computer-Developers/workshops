@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Firebase realtime chatting</title>
+    <style>
+      .sent {
+        text-align: right;
+        border: 2px solid green;
+      }
+      .receive {
+        text-align: left;
+        border: 2px solid purple;
+    }
+
+    </style>
+  </head>
+  <body>
+    <header>
+        <h2>Firebase Chat</h2>
+      </header>
+  
+        <!-- Login or signup -->
+        <form name="auth">
+          <h1>Enter your login/sign up</h1>
+          <input placeholder="Email" name="email" required>
+          <input placeholder="Password" name="password" type="password" required>
+          <br/>
+          <label for="isSignup">Sign Up?</label>
+          <input type="checkbox" name="isSignup">
+          <input type="submit" value="Submit">
+        </form>
+    
+      <div id="chat">
+        <!-- messages will display here -->
+        <ul id="messages"></ul>
+        
+        <!-- form to send message -->
+        <form id="message-form">
+          <input id="message-input" type="text" required/>
+          <button id="message-btn" type="submit">Send</button>
+        </form>
+      </div>
+    <!-- scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="auth.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
