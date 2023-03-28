@@ -1,17 +1,22 @@
 // backend url -> https://jsonplaceholder.typicode.com
 
-async function loadFromPath(path: string): Promise<any> {
-    const res = await fetch(process.env.BACKEND + path)
+async function getFromEndpoint(endpoint: string): Promise<any> {
+    const res = await fetch(process.env.BACKEND + endpoint)
     const data = await res.json()
     return data
 }
+// for index
+export const getUsers = (): Promise<JSONPlaceholderTypes.User[]> =>
+    getFromEndpoint("/users")
 
-const endpoints = {
-    loadUsers: loadFromPath("/users"),
-    loadPhotos: loadFromPath("/photos")
-}
+// for gallery
+export const getPhotos = (): Promise<JSONPlaceholderTypes.Photo[]> =>
+    getFromEndpoint("/photos")
 
-export default endpoints
+
+// for specific users [id] (getStaticPaths)
+export const getSpecificUser = (id: number | string): Promise<JSONPlaceholderTypes.User[]> =>
+    getFromEndpoint("/users/" + id)
 
 export declare namespace JSONPlaceholderTypes {
     /**
