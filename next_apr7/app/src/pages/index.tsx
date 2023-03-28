@@ -3,6 +3,7 @@ import { loadUsers } from '@/lib/api'
 import type { JSONPlaceholderTypes } from "@/lib/api"
 import Head from 'next/head'
 import Image from 'next/image'
+import Card from '@/comps/Card'
 
 // this will run at each page request and during build time
 export async function getStaticProps() {
@@ -23,7 +24,12 @@ export default function Home({ users }: { users: JSONPlaceholderTypes.User[] }) 
         <h1 className='text-lg'>Home</h1>
         <Nav />
         {/* <h3 className='text-gray-400'>All users</h3> */}
-        {users.map(({ id, email }) => <li key={id}>{email}</li>)}
+        {/* There's probably a better way to arrange these cards... */}
+        <div className="container columns-1 sm:columns-2 md:columns-3 mx-auto">
+          {users.map(({ id, name,email }) =>
+            <Card key={id} title={name}>{email}</Card>
+          )}
+        </div>
       </div>
     </>
   )

@@ -7,6 +7,9 @@ export async function loadUsers(): Promise<JSONPlaceholderTypes.User[]> {
 }
 
 export declare namespace JSONPlaceholderTypes {
+    /**
+     * @interface User under "/users" for each entry of array 
+     */
     interface User {
         id: number,
         name: string,
