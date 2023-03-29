@@ -8,6 +8,12 @@ const nextConfig = {
         hostname: "via.placeholder.com",
         port: "",
         pathname: "/**"
+      },
+      {
+        protocol: "https",
+        hostname: "avatars.dicebear.com",
+        port: "",
+        pathname: '/api/identicon/*.svg',
       }
     ]
   }

@@ -15,7 +15,7 @@ export default function Card({ title, img, children }: CardProps) {
                 </div>
                 <div className="p-8">
                     <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{title}</div>
-                    <p className="mt-2 text-slate-500">{children}</p>
+                    <div className="mt-2 text-slate-500">{children}</div>
                 </div>
             </div>
         </div>
