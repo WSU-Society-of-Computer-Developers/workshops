@@ -14,7 +14,7 @@ export default function Gallery({ photos }: { photos: JSONPlaceholderTypes.Photo
     return <>
         <h3 className='text-gray-400'>Gallery</h3>
         <div className="columns-1 md:columns-2 xl:columns-4">
-            {photos.map(({ id, title, url }) => <Card img={url} title={title} key={id}>{title}</Card>)}
+            {photos?.map(({ id, title, url }) => <Card img={url} title={title} key={id}>{title}</Card>)}
         </div>
     </>
 }
