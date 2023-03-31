@@ -17,6 +17,13 @@ export const getServerSideProps = async () => {
 export default function Home({ users }: { users: JSONPlaceholderTypes.User[] }) {
   return (
     <>
+      <Head>
+        <title>User directory</title>
+        <meta
+          name="description"
+          content="All users on the app."
+        />
+      </Head>
       <h3 className='text-gray-400'>All users</h3>
       {/* There's probably a better way to arrange these cards... */}
       <div className="container columns-1 sm:columns-2 md:columns-3 mx-auto">

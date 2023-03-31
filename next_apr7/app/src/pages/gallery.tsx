@@ -1,5 +1,6 @@
 import Card from "@/comps/Card"
 import { getPhotos, JSONPlaceholderTypes } from "@/lib/api"
+import Head from "next/head"
 
 // Next.js will pre-render this page at build time using the props returned by getStaticProps w/ Static Site Generation (SSG)
 export const getStaticProps = async () => {
@@ -12,6 +13,13 @@ export const getStaticProps = async () => {
 
 export default function Gallery({ photos }: { photos: JSONPlaceholderTypes.Photo[] }) {
     return <>
+        <Head>
+            <title>Gallery</title>
+            <meta
+                name="description"
+                content="All images on the app."
+            />
+        </Head>
         <h3 className='text-gray-400'>Gallery</h3>
         <div className="columns-1 md:columns-2 xl:columns-4">
             {photos?.map(({ id, title, url }) => <Card img={url} title={title} key={id}>{title}</Card>)}
