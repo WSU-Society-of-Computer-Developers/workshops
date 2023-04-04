@@ -1,7 +1,6 @@
 // dynamic routing for specific users
 import Card from "@/comps/Card"
 import { getSpecificUser, getUsers, JSONPlaceholderTypes } from "@/lib/api"
-import crypto from "crypto"
 import Head from "next/head"
 
 export const getStaticPaths = async () => {
@@ -13,6 +12,7 @@ export const getStaticPaths = async () => {
             }
         }), // needs: [ { params: { id: 1 } }, { params: { id: 2 } }, ... ]
         fallback: false // the route must be defined statically, when false, it will return a 404 error when path doesn't match
+        // if it's "blocking" it'l render on-demand if the path doesn't exist (you must handle accordingly though)
     }
 }
 
