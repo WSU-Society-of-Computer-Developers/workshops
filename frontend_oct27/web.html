@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>sample site</title>
+        <!-- Below is my stylesheet reference -->
+        <link href="style.css" rel="stylesheet" />
+    </head>
+<body>
+    <h1 class="header">My TODOs</h1>
+    <ul id="todos">
+
+    </ul>
+    <input type="text" id="todoInput">
+    <button onclick="createTodo()">Create</button>
+    <script>
+
+        const todosList = document.querySelector("#todos")
+        // when the user clicks "Create":
+        //  - take user input "#todoInput"
+        //  - appendChild to ul#todos
+        function createTodo() {
+            const inputValue = document.querySelector("#todoInput").value
+            if (!inputValue) return alert("Please enter something TODO")
+
+            const todoItem = document.createElement("li")
+            todoItem.textContent = inputValue
+            todoItem.onclick = function() {
+                todoItem.remove()
+            }
+            todoItem.onmouseover = function() {
+                this.style.textDecoration = "line-through"
+            }
+
+            todoItem.onmouseout = function() {
+                this.style.textDecoration = "none"
+            } 
+
+            todoItem.style.cursor = "pointer"
+            todosList.appendChild(todoItem)
+
+            localStorage.setItem("lastTODO", inputValue)
+        }
+
+    </script>
+</body>
+</html>
