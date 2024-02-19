@@ -1,0 +1,20 @@
+{
+  "name": "python_feb19",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "export NODE_OPTIONS=--no-experimental-fetch;mdx-deck build deck.mdx",
+    "start": "export NODE_OPTIONS=--no-experimental-fetch;mdx-deck deck.mdx -h 0.0.0.0 -p 8001 --no-open"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mdx-deck": "^4.1.1",
+    "remark-mdx": "^2.0.0-next.9"
+  },
+  "dependencies": {
+    "mdx-mermaid": "^2.0.0",
+    "mermaid": "^10.8.0"
+  }
+}
