@@ -1,0 +1,198 @@
+import {Quote} from "./Components";
+import { Split, SplitRight, Footer, FullScreenCode, Steps, Invert } from 'mdx-deck'
+import myTheme from "./theme";
+
+export const theme = myTheme;
+
+
+<Footer>
+
+Coding for Beginners w/ Python by [Zavaar Shah](https://github.com/thatziv)
+
+</Footer>
+
+
+<Split>
+
+# Coding for Beginners w/ Python
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png)
+
+</Split>
+
+---
+
+# What is programming/coding?
+
+- Writing instructions for a computer to execute.
+- Computers are dumb, but fast.
+- Computers don't understand human languages.
+
+---
+
+# What is Python?
+
+- Python is a **high-level**, interpreted programming language.
+- It is known for its simplicity and readability.
+- It is a great language for beginners.
+
+---
+
+# Let's get started!
+
+Download Python: [python.org](https://www.python.org/downloads/)
+
+Download code editor: [code.visualstudio.com](https://code.visualstudio.com/)
+
+## OR
+
+Use an online editor (limited experience): [online-python](https://www.online-python.com/) 
+
+---
+
+# Hello, World!
+
+`main.py`
+
+```python
+# This is a comment, they are ignored by the computer.
+print("Hello, World!") # This is a print statement.
+```
+
+---
+
+# Running the code
+
+- Open the terminal.
+- Navigate to the folder where  `main.py`  is located.
+- Run the command 
+
+```sh
+$ python main.py
+```
+
+<Quote>
+
+It may be `py`, `python3`, `py3` on some systems.
+
+</Quote>
+
+---
+
+# Variables
+
+<Steps>
+
+```python
+a = 10
+b = 5
+
+c = a + b
+
+print(a)
+# what will this print?
+```
+
+`10`
+
+</Steps>
+
+---
+
+<Steps>
+
+```python
+a = 10
+b = 5
+
+c = a + b
+
+print(b)
+# what will this print?
+```
+
+`5`
+
+</Steps>
+
+---
+
+<Steps>
+
+```python
+a = 10
+b = 5
+
+c = a + b
+
+print(c)
+# what will this print?
+```
+
+`15`
+
+</Steps>
+
+---
+
+# Math operations
+
+```python
+
+a = 10
+b = 5
+
+print("Sum:", a + b) # Sum: 15
+print("Difference:", a - b) # Difference: 5
+print("Product:", a * b) # Product: 50
+print("Quotient:", a / b) # Quotient: 2.0
+
+```
+
+---
+
+# Other data types
+
+- `int` - Integer number
+<Quote>
+a = 10
+</Quote>
+
+- `float` - Floating point number
+<Quote>
+b = 2.5
+</Quote>
+
+- `str` - String
+<Quote>
+c = "Hello, World!" 
+# or w/ single quotes 'Hello, World!'
+</Quote>
+
+- `bool` - Boolean
+<Quote>
+d = True
+# or False
+</Quote>
+
+---
+
+# Conditionals
+
+```python
+
+name = "Zavaar"
+age = 20
+
+if age >= 18:
+    print(name, "is an adult.")
+else:
+    print(name, "is a minor.")
+
+# Outputs: Zavaar is an adult.
+
+```
+
+
+
+
