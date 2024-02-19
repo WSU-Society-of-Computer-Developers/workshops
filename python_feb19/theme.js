@@ -8,5 +8,12 @@ export default {
   colors: {
     background: "#1a1a1a",
   },
+  styles: {
+    h1: {
+      letterSpacing: "-0.05em",
+      fontSize: "2em"
+
+    }
+  },
   ...themes.prism,
 };

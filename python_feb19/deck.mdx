@@ -1,5 +1,5 @@
 import {Quote} from "./Components";
-import { Split, SplitRight, Footer, FullScreenCode, Steps, Invert } from 'mdx-deck'
+import { Split, SplitRight, Footer, FullScreenCode, Steps, Notes, Horizontal } from 'mdx-deck'
 import myTheme from "./theme";
 
 export const theme = myTheme;
@@ -19,6 +19,34 @@ Coding for Beginners w/ Python by [Zavaar Shah](https://github.com/thatziv)
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png)
 
 </Split>
+
+---
+
+<Horizontal>
+
+# A bit about myself. 👉
+
+<Steps>
+
+<Horizontal>
+
+<span>
+
+### Zavaar Shah
+- 3rd year of CS
+- Pres [SCD](https://scd.cs.wayne.edu/)
+- Pres [GDSC](https://getinvolved.wayne.edu/organization/gdsc)
+- VP [ESS](https://getinvolved.wayne.edu/organization/engineering-student-senate)
+
+</span>
+
+![img](https://chart.apis.google.com/chart?cht=qr&chs=350x350&chld=L&choe=UTF-8&chl=https%3A%2F%2Flinkedin.com%2Fin%2Fzavaar-shah)
+
+</Horizontal>
+
+</Steps>
+
+</Horizontal>
 
 ---
 
@@ -137,6 +165,10 @@ print(c)
 
 # Math operations
 
+<Steps>
+
+<span>
+
 ```python
 
 a = 10
@@ -145,35 +177,87 @@ b = 5
 print("Sum:", a + b) # Sum: 15
 print("Difference:", a - b) # Difference: 5
 print("Product:", a * b) # Product: 50
-print("Quotient:", a / b) # Quotient: 2.0
+print("Quotient: " + str(a / b)) # Quotient: 2.0
 
 ```
 
+</span>
+
+<span>
+
+```python
+
+c = "Hello "
+d = "World!"
+
+print(c + d) # Hello World!
+
+```
+
+</span>
+
+</Steps>
+
+
 ---
 
-# Other data types
+# Data types
 
-- `int` - Integer number
+<Steps>
+
+<span>
+
+### `int` - Integer number
+
 <Quote>
-a = 10
+<pre>a = 10</pre>
 </Quote>
 
-- `float` - Floating point number
+</span>
+
+<span>
+
+
+### `float` - Floating point number
+
+
 <Quote>
-b = 2.5
+<pre>b = 2.5</pre>
 </Quote>
 
-- `str` - String
+</span>
+
+<span>
+
+### `str` - String
+
 <Quote>
-c = "Hello, World!" 
-# or w/ single quotes 'Hello, World!'
+
+<pre>
+c = "Hello, World!" # or w/ single quotes
+</pre>
+
 </Quote>
 
-- `bool` - Boolean
+</span>
+
+<span>
+
+### `bool` - Boolean
+
 <Quote>
+
+<pre>
 d = True
 # or False
+</pre>
+
 </Quote>
+
+</span>
+
+
+</Steps>
 
 ---
 
@@ -188,11 +272,542 @@ if age >= 18:
     print(name, "is an adult.")
 else:
     print(name, "is a minor.")
+    print("He will be an adult in " + str(18 - age) + " years.")
 
 # Outputs: Zavaar is an adult.
 
 ```
 
+---
+
+# Lists
+
+<Steps>
+
+<span>
+
+### `list` - Ordered collection of items
+
+```python
+fruits = ["apple", "banana", "orange"]
+
+print("the fruits are:", fruits) 
+# the fruits are: ['apple', 'banana', 'orange']
+```
+
+</span>
+
+<span>
+
+```python
+print("the first fruit is:", fruits[0])
+print("the second fruit is:", fruits[1])
+print("the third fruit is:", fruits[2])
+```
+
+</span>
+
+</Steps>
+
+---
+
+# For loops
+
+<Steps>
+
+<span>
+
+```python
+fruits = ["apple", "banana", "orange"]
+for fruit in fruits:
+    print(fruit)
+# apple
+# banana
+# orange
+```
+
+</span>
+
+<span>
+
+```python
+for i in range(len(fruits)):
+    print(i, fruits[i])
+# 0 apple
+# 1 banana
+# 2 orange
+```
+
+</span>
+
+</Steps>
+
+---
+
+# While loops
+
+```python
+i = 0
+while i < 5:
+    print(i)
+    i += 1
+# 0
+# 1
+# 2
+# 3
+# 4
+```
+---
+
+# Functions
+
+<Steps>
+
+<span>
+
+```python
+# Define a function
+def greet():
+    print("Hello")
+```
+
+</span>
+
+<span>
+
+```python
+# Call the function
+greet()
+```
+</span>
+
+<span>
+
+```python
+# Outputs: Hello
+```
+
+</span>
+
+</Steps>
+
+---
+
+# Functions with arguments
+
+<Steps>
+
+<span>
+
+```python
+def greet(name):
+    print("Hello", name)
+```
+
+</span>
+
+<span>
+
+```python
+greet("Zavaar")
+a = "guy"
+greet(a)
+```
+
+</span>
+
+<span>
+
+```python
+# Hello Zavaar
+# Hello guy
+```
+
+</span>
+
+</Steps>
+
+---
+
+# Functions with return values
+
+<Steps>
+
+<span>
+
+```python
+def sum(a, b):
+    return a + b
+```
+
+</span>
+
+<span>
+
+```python
+result = sum(10, 5)
+
+print(result) # 15
+print(sum(9,10)) # 19
+```
+
+</span>
+
+</Steps>
+
+---
+
+# Functions overview
+
+![img](https://pynative.com/wp-content/uploads/2022/08/python_function_argument_and_parameter.jpg)
+
+--- 
+
+# Dictionaries
+
+<Steps>
+
+### `dict` - Key-value pairs
+
+<span>
+
+```python
+person = {
+    "name": "Zavaar",
+    "age": 20,
+    "is_student": True
+}
+print(person["name"]) # Zavaar
+if person["is_student"]:
+    print("He is a student.")
+else:
+    print("He is not a student.")
+# He is a student.
+person["age"] = 21 # reassigning a value
+print(person["age"]) # 21
+```
+
+</span>
+
+</Steps>
+
+---
+
+# There is a better way to interact with data.
+
+<Steps>
+
+## With Object-oriented programming.
+
+</Steps>
+
+---
+
+# Classes
+
+<Steps>
 
 
+<FullScreenCode>
 
+```python
+class Person:
+    def __init__(self, name, age, is_student=False):
+        self.name = name
+        self.age = age
+        self.is_student = is_student
+```
+
+</FullScreenCode>
+
+<FullScreenCode style={{marginTop: -10}}>
+
+```python
+    def greet(self):
+        print("Hello", self.name)
+    
+    def is_adult(self):
+        return self.age >= 18
+```
+
+</FullScreenCode>
+
+</Steps>
+
+---
+
+# Using the class
+
+<Steps>
+
+<span>
+
+## Instantiate the class
+
+```python
+zavaar = Person("Zavaar", 20, True)
+```
+
+</span>
+
+<span>
+
+## Now we can..
+
+```python
+zavaar.greet() # Hello Zavaar
+print(zavaar.is_adult()) # True
+```
+
+</span>
+
+</Steps>
+
+---
+
+![oop_concepts](https://miro.medium.com/v2/resize:fit:720/format:webp/1*KRa8SkP7T646zokicYSqyQ.png)
+
+---
+
+# I/O operations
+
+<Steps>
+
+<span>
+
+```python
+# Reading from console input
+name = input("Enter your name: ")
+print("Hello", name)
+```
+
+</span>
+
+<span>
+
+```python
+# reading from a file
+file = open("file.txt", "r")
+print(file.read())
+file.close()
+```
+
+</span>
+
+<span>
+
+```python
+# writing to a file
+file = open("file.txt", "w")
+file.write("Hello, World!\n")
+file.close()
+```
+
+</span>
+
+</Steps>
+
+---
+
+# Let's build some programs.
+
+---
+
+# BMI Calculator
+
+---
+
+<FullScreenCode>
+
+```python
+import math
+
+# BMI = 703 * ( lbs / (inches ^ 2))
+def bmi(weight, height):
+    return 703 * (weight / (height ** 2))
+
+def bmi_classification(bmi):
+    if bmi < 18.5:
+        return "underweight"
+    elif bmi < 25:
+        return "normal"
+    elif bmi < 30:
+        return "overweight"
+    else:
+        return "obese"
+
+weight = float(input("Enter your weight in lbs: "))
+heightFt = float(input("Enter your height in feet: "))
+heightIn = float(input("Enter the remaining height in inches: "))
+# height = ( height in feet * 12 ) + extra inches
+height = (heightFt * 12) + heightIn
+
+your_bmi = bmi(weight, height)
+print("Your BMI is:", math.floor(your_bmi))
+print("You are", bmi_classification(your_bmi))
+```
+
+</FullScreenCode>
+
+--- 
+
+# Rock, Paper, Scissors
+
+---
+
+<FullScreenCode>
+
+```python
+import random
+
+def get_user_choice():
+    return input("Enter your choice: ").lower()
+
+def get_computer_choice():
+    return random.choice(["rock", "paper", "scissors"])
+
+def determine_winner(user, computer):
+    if user == computer:
+        return "It's a tie!"
+    if user == "rock":
+        return "You win!" if computer == "scissors" else "You lose!"
+    if user == "paper":
+        return "You win!" if computer == "rock" else "You lose!"
+    if user == "scissors":
+        return "You win!" if computer == "paper" else "You lose!"
+
+while True:
+    user = get_user_choice()
+    computer = get_computer_choice()
+    print("Computer chose:", computer)
+    print(determine_winner(user, computer))
+    if input("Play again? (y/n): ").lower() != "y":
+        break
+```
+
+</FullScreenCode>
+
+---
+
+# Rock, Paper, Scissors, with OOP
+
+---
+
+<FullScreenCode>
+
+```python
+import random
+from abc import ABC, abstractmethod 
+
+class Player:
+    def __init__(self, name):
+        self.name = name
+        self._score = 0
+
+    @property
+    def choices(self):
+        return ["rock", "paper", "scissors"]
+
+    @property
+    def score(self):
+        return self._score
+
+    @abstractmethod
+    def get_choice(self):
+        pass
+
+    def win(self):
+        self._score += 1
+        print(self.name, "wins!")
+    
+
+class Human(Player):
+    def __init__(self, name):
+        super().__init__(name)
+
+    def get_choice(self):
+        return input("Enter your choice: ").lower()
+
+class Computer(Player):
+    def __init__(self):
+        super().__init__("Computer")
+
+    def get_choice(self):
+        return random.choice(self.choices)
+
+
+class Game:
+    def __init__(self, p1, p2):
+        self.p1 = p1
+        self.p2 = p2
+
+    def determine_winner(self, p1_input, p2_input):
+        if p1_input == p2_input:
+            print("It's a tie!")
+        elif p1_input == "rock":
+            self.p1.win() if p2_input == "scissors" else self.p2.win()
+        elif p1_input == "paper":
+            self.p1.win() if p2_input == "rock" else self.p2.win()
+        elif p1_input == "scissors":
+            self.p1.win() if p2_input == "paper" else self.p2.win()
+    
+    def play(self):
+        while True:
+            p1_input = self.p1.get_choice()
+            p2_input = self.p2.get_choice()
+            print(self.p2.name, "choses:", p2_input)
+            self.determine_winner(p1_input, p2_input)
+            if input("Play again? (y/n): ").lower() != "y":
+                print(self.p1.name, "score:", self.p1.score)
+                print(self.p2.name, "score:", self.p2.score)
+                break
+
+
+if __name__ == "__main__":
+    player1 = Human("Zavaar")
+    player2 = Computer()
+    game = Game(player1, player2)
+    game.play()
+```
+    
+</FullScreenCode>
+
+---
+
+![uml](https://i.imgur.com/0OCYixS.png)
+
+<Notes>
+
+```
+classDiagram
+    class Player {
+        - name: string
+        - _score: int
+        + choices(): string[]
+        + score(): int
+        + get_choice(): string
+        + win(): void
+    }
+    class Human {
+        + get_choice(): string
+    }
+    class Computer {
+        + get_choice(): string
+    }
+    class Game {
+        - p1: Player
+        - p2: Player
+        + determine_winner(p1_input: string, p2_input: string): void
+        + play(): void
+    }
+
+    Player <|-- Human
+    Player <|-- Computer
+
+    Human ..> Player : implements
+    Computer ..> Player : implements
+    Game o-- Player : p1
+    Game o-- Player : p2
+```
+
+</Notes>
