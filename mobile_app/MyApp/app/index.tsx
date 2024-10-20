@@ -11,9 +11,13 @@ export default function Index() {
       }}
     >
       <Text>Edit app/index.tsx to edit this screen.</Text>
-      <Link push href="/counter">
+      <Link style={{ color: "blue" }} push href="/counter">
         {" "}
-        Go to Counter
+        Visit Counter
+      </Link>
+      <Link style={{ color: "blue" }} push href="/calculator">
+        {" "}
+        Visit Calculator
       </Link>
     </View>
   );
