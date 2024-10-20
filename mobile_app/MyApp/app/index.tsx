@@ -10,7 +10,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Text style={{ fontSize: 50, fontWeight: "bold" }}>Welcome</Text>
       <Link style={{ color: "blue" }} push href="/counter">
         {" "}
         Visit Counter
