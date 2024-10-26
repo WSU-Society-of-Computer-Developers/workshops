@@ -12,12 +12,13 @@ export default function Index() {
     >
       <Text style={{ fontSize: 50, fontWeight: "bold" }}>Welcome</Text>
       <Link style={{ color: "blue" }} push href="/counter">
-        {" "}
         Visit Counter
       </Link>
       <Link style={{ color: "blue" }} push href="/calculator">
-        {" "}
         Visit Calculator
+      </Link>
+      <Link style={{ color: "blue" }} push href="/todo">
+        Visit TODOs
       </Link>
     </View>
   );
